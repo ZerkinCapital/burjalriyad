@@ -62,7 +62,8 @@ nav a.pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px
 .hero-media { position: absolute; inset: 0; z-index: 0; display: none; }
 .hero.has-media .hero-media { display: block; }
 .hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,14,20,.62), rgba(10,14,20,.12) 70%); }
+.hero-media img { transform: scaleX(-1); }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,12,22,.66) 0%, rgba(8,12,22,.34) 38%, rgba(8,12,22,.04) 62%); }
 .skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 110px; z-index: 0; }
 .skyline rect { fill: var(--skyline); }
 .hero.has-media .skyline { display: none; }
@@ -72,7 +73,9 @@ nav a.pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px
 .hero.has-media h1, .hero.has-media .where, .hero.has-media .sub { color: #fff; }
 .hero.has-media .ar { color: #e6cfa6; }
 .hero.has-media .cta { background: #fff; color: #12161d; }
-.hero.has-media .tower-fig { background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 20px 16px 12px; border-radius: 6px; }
+.hero.has-media { min-height: min(92vh, 900px); display: flex; align-items: center; }
+.hero.has-media .hero-inner { width: 100%; grid-template-columns: 1fr; }
+.hero.has-media .ar { text-align: left; }
 .where { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; font-weight: 400; }
 h1 { margin: 0; font-weight: 200; font-size: clamp(52px, 9vw, 120px); line-height: 1.02; letter-spacing: -0.03em; }
 .ar { font-family: var(--font-ar); color: var(--accent); font-size: clamp(30px, 4vw, 44px); line-height: 1.3; margin: 10px 0 26px; }
@@ -104,6 +107,8 @@ h2 { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-we
 .facts b { display: block; font-weight: 400; font-size: 24px; line-height: 1.3; }
 .facts span { color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
 
+.prog { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 56px; align-items: start; max-width: 1040px; margin-inline: auto; }
+.prog .tower-fig { position: sticky; top: 24px; justify-self: end; max-width: 420px; }
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; }
 caption { text-align: left; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
@@ -154,6 +159,9 @@ footer { margin-top: 100px; border-top: 1px solid var(--rule); padding-block: 32
   .hero { padding-block: 44px; }
   .hero-inner { grid-template-columns: 1fr; gap: 36px; }
   .tower-fig { max-width: 300px; }
+  .prog { grid-template-columns: 1fr; gap: 36px; }
+  .prog .tower-fig { position: static; justify-self: center; }
+  .hero-media::after { background: linear-gradient(180deg, rgba(8,12,22,.55), rgba(8,12,22,.35)); }
   section { padding-block: 60px 0; }
 }
 @media (max-width: 520px) {
@@ -179,7 +187,7 @@ footer { margin-top: 100px; border-top: 1px solid var(--rule); padding-block: 32
 </div>
 
 <div id="top" class="hero">
-  <div class="hero-media" aria-hidden="true"><video id="heroVideo" autoplay muted loop playsinline poster="assets/hero.jpg"><source src="assets/hero.mp4" type="video/mp4"></video><img id="heroImg" src="assets/hero.jpg" alt=""></div>
+  <div class="hero-media" aria-hidden="true"><video id="heroVideo" autoplay muted loop playsinline><source src="assets/hero.mp4" type="video/mp4"></video><img id="heroImg" src="exterior.jpg" alt=""></div>
   <svg class="skyline" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="70" width="43" height="40"/><rect x="46" y="48" width="35" height="62"/><rect x="84" y="76" width="47" height="34"/><rect x="134" y="32" width="27" height="78"/><rect x="164" y="60" width="53" height="50"/><rect x="220" y="80" width="37" height="30"/><rect x="260" y="44" width="31" height="66"/><rect x="294" y="66" width="57" height="44"/><rect x="354" y="26" width="33" height="84"/><rect x="390" y="72" width="49" height="38"/><rect x="442" y="52" width="41" height="58"/><rect x="486" y="82" width="67" height="28"/><rect x="556" y="38" width="35" height="72"/><rect x="594" y="64" width="47" height="46"/><rect x="644" y="74" width="31" height="36"/><rect x="678" y="46" width="53" height="64"/><rect x="734" y="70" width="43" height="40"/><rect x="780" y="30" width="37" height="80"/><rect x="820" y="76" width="57" height="34"/><rect x="880" y="52" width="35" height="58"/><rect x="918" y="66" width="49" height="44"/><rect x="970" y="40" width="41" height="70"/><rect x="1014" y="72" width="53" height="38"/><rect x="1070" y="50" width="33" height="60"/><rect x="1106" y="78" width="47" height="32"/><rect x="1156" y="60" width="41" height="50"/></svg>
   <span class="badge">Artist's impression</span>
   <div class="hero-inner">
@@ -190,6 +198,57 @@ footer { margin-top: 100px; border-top: 1px solid var(--rule); padding-block: 32
       <p class="sub">Where hospitality, tourism, medicine and education meet.</p>
       <a class="cta" href="#register">Register your interest</a>
     </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="project">
+    <div class="col">
+      <p class="lead">Teaching, work, residence and amenity, stacked on a single plot of Riyadh.</p>
+      <p>Burj Al Riyad is a proposed mixed-use tower. The scheme brings academic space, student housing, offices and serviced apartments into one building, with medical floors for diagnostics, rehabilitation, pharma and wellness below, dining in the middle, and a shared sky lobby with high dining at the top.</p>
+      <ul class="facts">
+        <li><b>In development</b><span>Status</span></li>
+        <li><b>42</b><span>Levels</span></li>
+        <li><b>Mixed use</b><span>Use</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="gallery" hidden>
+    <div class="gallery-wrap">
+      <div class="col"><h2>The building</h2></div>
+      <div class="gallery" id="gal">
+        <figure><img src="assets/lobby.jpg" alt="Sky lobby of the proposed tower"><figcaption>Sky lobby <i>· Artist's impression</i></figcaption></figure>
+        <figure><img src="assets/apartments.jpg" alt="Serviced apartment interior"><figcaption>Serviced apartment <i>· Artist's impression</i></figcaption></figure>
+        <figure><img src="assets/offices.jpg" alt="Office floor of the proposed tower"><figcaption>Office floor <i>· Artist's impression</i></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="programme">
+    <div class="prog">
+      <div class="prog-main">
+      <h2>Programme</h2>
+      <div class="table-wrap">
+        <table id="stack">
+          <caption>The stack, indicative</caption>
+          <thead class="sr">
+            <tr><th scope="col">Levels</th><th scope="col">Use</th></tr>
+          </thead>
+          <tbody>
+            <tr data-b="41"><td class="lv">41–42</td><td class="use">Sky lobby, high dining and crown level</td></tr>
+            <tr data-b="34"><td class="lv">30–40</td><td class="use">Serviced apartments</td></tr>
+            <tr data-b="25"><td class="lv">25–29</td><td class="use">Offices</td></tr>
+            <tr data-b="22"><td class="lv">22–24</td><td class="use">Dining and sports</td></tr>
+            <tr data-b="14"><td class="lv">12–21</td><td class="use">Student housing or offices</td></tr>
+            <tr data-b="6"><td class="lv">6–11</td><td class="use">Academic floors</td></tr>
+            <tr data-b="2"><td class="lv">2–5</td><td class="use">Medical, diagnostics, rehabilitation, pharma and wellness</td></tr>
+            <tr data-b="1"><td class="lv">1</td><td class="use">Podium, lobby and café</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Level allocations are indicative and subject to design development. Floors marked "or" can be configured for either use.</p>
+      </div>
     <figure class="tower-fig" id="fig">
       <svg viewBox="0 0 340 540" role="img" aria-label="Schematic elevation of the 42-level tower showing the proposed arrangement of uses">
         <line x1="120" y1="10" x2="120" y2="40" stroke="var(--muted)" stroke-width="1.5"/>
@@ -221,56 +280,6 @@ footer { margin-top: 100px; border-top: 1px solid var(--rule); padding-block: 32
         <text x="180" y="499">Podium, lobby, café</text>
       </svg>
     </figure>
-  </div>
-</div>
-
-<div class="wrap">
-  <section id="project">
-    <div class="col">
-      <p class="lead">Teaching, work, residence and amenity, stacked on a single plot of Riyadh.</p>
-      <p>Burj Al Riyad is a proposed mixed-use tower. The scheme brings academic space, student housing, offices and serviced apartments into one building, with medical floors for diagnostics, rehabilitation, pharma and wellness below, dining in the middle, and a shared sky lobby with high dining at the top.</p>
-      <ul class="facts">
-        <li><b>In development</b><span>Status</span></li>
-        <li><b>42</b><span>Levels</span></li>
-        <li><b>Mixed use</b><span>Use</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="gallery" hidden>
-    <div class="gallery-wrap">
-      <div class="col"><h2>The building</h2></div>
-      <div class="gallery" id="gal">
-        <figure><img src="exterior.jpg" alt="Exterior of the proposed tower"><figcaption>Exterior <i>· Artist's impression</i></figcaption></figure>
-        <figure><img src="assets/lobby.jpg" alt="Sky lobby of the proposed tower"><figcaption>Sky lobby <i>· Artist's impression</i></figcaption></figure>
-        <figure><img src="assets/apartments.jpg" alt="Serviced apartment interior"><figcaption>Serviced apartment <i>· Artist's impression</i></figcaption></figure>
-        <figure><img src="assets/offices.jpg" alt="Office floor of the proposed tower"><figcaption>Office floor <i>· Artist's impression</i></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="programme">
-    <div class="col">
-      <h2>Programme</h2>
-      <div class="table-wrap">
-        <table id="stack">
-          <caption>The stack, indicative</caption>
-          <thead class="sr">
-            <tr><th scope="col">Levels</th><th scope="col">Use</th></tr>
-          </thead>
-          <tbody>
-            <tr data-b="41"><td class="lv">41–42</td><td class="use">Sky lobby, high dining and crown level</td></tr>
-            <tr data-b="34"><td class="lv">30–40</td><td class="use">Serviced apartments</td></tr>
-            <tr data-b="25"><td class="lv">25–29</td><td class="use">Offices</td></tr>
-            <tr data-b="22"><td class="lv">22–24</td><td class="use">Dining and sports</td></tr>
-            <tr data-b="14"><td class="lv">12–21</td><td class="use">Student housing or offices</td></tr>
-            <tr data-b="6"><td class="lv">6–11</td><td class="use">Academic floors</td></tr>
-            <tr data-b="2"><td class="lv">2–5</td><td class="use">Medical, diagnostics, rehabilitation, pharma and wellness</td></tr>
-            <tr data-b="1"><td class="lv">1</td><td class="use">Podium, lobby and café</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note">Level allocations are indicative and subject to design development. Floors marked "or" can be configured for either use.</p>
     </div>
   </section>
 
