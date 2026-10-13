@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Burj Al Riyad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -365,7 +369,12 @@ var FORM_ENDPOINT = "https://formspree.io/f/xrpeawyp";
     var id = tr.getAttribute("data-b");
     tr.addEventListener("mouseenter", function () { show(id); });
     tr.addEventListener("mouseleave", clear);
+    tr.addEventListener("click", function (e) { e.stopPropagation(); show(id); });
   });
+  rects.forEach(function (r) {
+    r.addEventListener("click", function (e) { e.stopPropagation(); show(r.getAttribute("data-b")); });
+  });
+  document.addEventListener("click", clear);
 
   var form = document.getElementById("reg");
   var status = document.getElementById("status");
